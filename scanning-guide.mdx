@@ -1,0 +1,163 @@
+---
+title: Scanning Guide
+description: Detailed techniques for capturing high-quality 3D scans
+---
+
+## Understanding Scanning Fundamentals
+
+Successful 3D scanning with ScanoRoom depends on proper technique, environmental conditions, and equipment handling. This guide covers the essential principles and best practices for achieving professional-quality results.
+
+<Columns cols={3}>
+  <Card title="Sensor Technology" icon="cpu" href="#lidar-basics">
+    Learn how LiDAR sensors capture depth information.
+  </Card>
+  <Card title="Movement Patterns" icon="move" href="#scanning-techniques">
+    Master the optimal ways to move during scanning.
+  </Card>
+  <Card title="Quality Control" icon="check-circle" href="#quality-checks">
+    Verify scan quality and identify common issues.
+  </Card>
+</Columns>
+
+## LiDAR Technology Basics
+
+ScanoRoom leverages your iPhone's LiDAR sensor to capture precise depth measurements. Understanding how this technology works helps you optimize your scanning approach.
+
+<Tabs>
+  <Tab title="How LiDAR Works" icon="radar">
+    LiDAR emits infrared light pulses and measures their return time to calculate distances.
+    
+    <Expandable title="Sensor Specifications" default-open="false">
+      - Range: Up to 5 meters
+      - Accuracy: ±1mm at 1 meter
+      - Field of view: 60° horizontal × 55° vertical
+    </Expandable>
+  </Tab>
+  <Tab title="Data Processing" icon="database">
+    Raw sensor data is processed into point clouds representing spatial coordinates.
+    
+    <Expandable title="Point Cloud Density" default-open="false">
+      Higher density provides more detail but requires more processing power.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Scanning Techniques
+
+Different scanning scenarios require specific techniques. Choose the appropriate method based on your space and objectives.
+
+<Steps>
+  <Step title="Preparation" icon="clipboard-check">
+    Clear the space of obstacles and ensure adequate lighting. Remove reflective objects that may interfere with sensors.
+  </Step>
+  <Step title="Positioning" icon="crosshair">
+    Hold your iPhone at chest height, keeping the screen facing the area you want to scan.
+  </Step>
+  <Step title="Movement" icon="arrow-right">
+    Move steadily at walking pace, maintaining overlap between scanning passes.
+  </Step>
+  <Step title="Coverage" icon="target">
+    Ensure complete coverage by scanning from multiple angles and heights.
+  </Step>
+  <Step title="Verification" icon="eye">
+    Review the live preview for gaps or low-quality areas and rescan as needed.
+  </Step>
+</Steps>
+
+<ExpandableGroup>
+  <Expandable title="Room Scanning" default-open="true">
+    For interior spaces, start in one corner and work methodically around the room, ensuring 30% overlap between passes.
+  </Expandable>
+  <Expandable title="Large Areas" default-open="false">
+    Break large spaces into sections, scanning each area completely before moving to the next.
+  </Expandable>
+  <Expandable title="Complex Objects" default-open="false">
+    For furniture or detailed objects, scan from multiple close-range positions.
+  </Expandable>
+</ExpandableGroup>
+
+## Quality Control and Troubleshooting
+
+Monitor scan quality in real-time and address issues immediately to avoid costly reshoots.
+
+<Callout kind="alert">
+  If scan quality drops below 80%, pause and adjust your technique or environmental conditions.
+</Callout>
+
+<Tabs>
+  <Tab title="Common Issues" icon="alert-triangle">
+    <Expandable title="Low Quality Areas" default-open="true">
+      Caused by fast movement, poor lighting, or reflective surfaces. Solution: Slow down and improve lighting.
+    </Expandable>
+    
+    <Expandable title="Gaps in Coverage" default-open="false">
+      Occurs when moving too quickly or not overlapping passes sufficiently. Solution: Use slower, more overlapping movements.
+    </Expandable>
+  </Tab>
+  <Tab title="Optimization Tips" icon="zap">
+    <Expandable title="Lighting Conditions" default-open="true">
+      Use diffuse, even lighting. Avoid direct sunlight or deep shadows that can confuse sensors.
+    </Expandable>
+    
+    <Expandable title="Surface Types" default-open="false">
+      Matte surfaces scan better than glossy or transparent materials. Cover mirrors and glass if possible.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Advanced Scanning Scenarios
+
+Handle complex scanning situations with specialized techniques and equipment considerations.
+
+<Steps>
+  <Step title="Multi-Room Projects" icon="building">
+    Create separate scans for each room and use alignment features to combine them into a unified model.
+  </Step>
+  <Step title="Outdoor Scanning" icon="sun">
+    Schedule scans during overcast conditions and use tripods for stability in windy conditions.
+  </Step>
+  <Step title="Night Scanning" icon="moon">
+    Use artificial lighting to maintain consistent illumination and avoid sensor overload.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="Configuration,Advanced Settings">
+````javascript
+// Configure scan parameters
+ScanoRoom.scan({
+  quality: "high",
+  range: "auto",
+  stabilization: true,
+  realTimePreview: true
+});
+````
+````javascript
+// Advanced processing options
+ScanoRoom.process({
+  noiseReduction: true,
+  holeFilling: "automatic",
+  meshOptimization: "balanced",
+  textureMapping: true
+});
+````
+</CodeGroup>
+
+## Post-Processing and Refinement
+
+After scanning, use ScanoRoom's tools to clean up and enhance your 3D models.
+
+<ExpandableGroup>
+  <Expandable title="Noise Reduction" default-open="true">
+    Remove unwanted points and smooth rough areas using automatic or manual tools.
+  </Expandable>
+  <Expandable title="Hole Filling" default-open="false">
+    Automatically fill gaps in the mesh where data was insufficient.
+  </Expandable>
+  <Expandable title="Mesh Optimization" default-open="false">
+    Reduce polygon count while maintaining detail for better performance.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  Always save original scan data before applying destructive post-processing operations.
+</Callout>

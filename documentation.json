@@ -1,0 +1,74 @@
+{
+  "name": "ScanoRoom Documentation",
+  "initialRoute": "introduction",
+  "primaryColor": "#5896ed",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "icon": "book",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "icon": "rocket",
+            "pages": [
+              {
+                "title": "Introduction",
+                "path": "introduction",
+                "icon": "star"
+              }
+            ]
+          },
+          {
+            "group": "Using ScanoRoom",
+            "icon": "camera",
+            "pages": [
+              {
+                "title": "Quick Start",
+                "path": "quick-start",
+                "icon": "zap"
+              },
+              {
+                "title": "Scanning Guide",
+                "path": "scanning-guide",
+                "icon": "eye"
+              }
+            ]
+          },
+          {
+            "group": "Exporting",
+            "icon": "download",
+            "pages": [
+              {
+                "title": "Exporting Projects",
+                "path": "exporting-projects",
+                "icon": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "icon": "code",
+        "groups": [
+          {
+            "group": "API",
+            "openapi": "openapi.yaml"
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "icon": "clock",
+        "pages": [
+          {
+            "title": "Release History",
+            "path": "changelog",
+            "icon": "history"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+---
+title: Quick Start
+description: Get started with ScanoRoom in minutes
+---
+
+## Installation and Setup
+
+Begin your ScanoRoom journey by downloading the app from the App Store and completing the initial setup. The process takes less than five minutes and requires no special configuration.
+
+<Steps>
+  <Step title="Download App" icon="download">
+    Search for "ScanoRoom" in the App Store and install the latest version on your compatible iPhone.
+  </Step>
+  <Step title="Grant Permissions" icon="shield">
+    Allow camera and location permissions when prompted to enable full scanning functionality.
+  </Step>
+  <Step title="Create Account" icon="user-plus">
+    Sign up for a free account to access cloud storage and advanced features.
+  </Step>
+  <Step title="Calibrate Device" icon="settings">
+    Follow the on-screen calibration process to optimize scanning accuracy.
+  </Step>
+</Steps>
+
+## Your First Scan
+
+Once setup is complete, you can immediately start scanning. ScanoRoom guides you through the entire process with visual cues and audio feedback.
+
+<Columns cols={2}>
+  <Card title="Indoor Spaces" icon="home" href="#indoor-scanning">
+    Perfect for rooms, offices, and apartments up to 100 square meters.
+  </Card>
+  <Card title="Outdoor Areas" icon="tree" href="#outdoor-scanning">
+    Capture gardens, facades, and exterior spaces with proper lighting.
+  </Card>
+</Columns>
+
+<Tabs>
+  <Tab title="Step-by-Step Guide" icon="list">
+    <Steps>
+      <Step title="Select Project" icon="folder-plus">
+        Create a new project or open an existing one from the main menu.
+      </Step>
+      <Step title="Start Scanning" icon="play-circle">
+        Tap the scan button and begin moving your iPhone slowly around the space.
+      </Step>
+      <Step title="Monitor Progress" icon="bar-chart">
+        Watch the progress indicator as the app captures and processes data.
+      </Step>
+      <Step title="Complete Scan" icon="check-circle">
+        Stop scanning when you've covered the entire area of interest.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Best Practices" icon="thumbs-up">
+    <Callout kind="tip">
+      Move at a consistent speed of about 1 meter per second for optimal data capture.
+    </Callout>
+    
+    <Expandable title="Lighting Tips" default-open="false">
+      Ensure adequate lighting but avoid direct sunlight that can cause sensor interference.
+    </Expandable>
+    
+    <Expandable title="Movement Patterns" default-open="false">
+      Use a systematic scanning pattern, overlapping each pass by 20-30% for complete coverage.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Reviewing Your Results
+
+After completing a scan, ScanoRoom automatically processes the data into a viewable 3D model. You can immediately see measurements and explore the captured space.
+
+<ExpandableGroup>
+  <Expandable title="3D View Navigation" default-open="true">
+    Use two-finger gestures to rotate, zoom, and pan through your 3D model. Pinch to zoom and swipe to change viewing angle.
+  </Expandable>
+  <Expandable title="Measurement Tools" default-open="false">
+    Tap any two points to measure distances, areas, and angles within your scan.
+  </Expandable>
+  <Expandable title="Annotation Features" default-open="false">
+    Add text notes, arrows, and highlights to mark important features or measurements.
+  </Expandable>
+</ExpandableGroup>
+
+## Saving and Sharing
+
+ScanoRoom automatically saves your projects to the cloud, allowing access from multiple devices and easy sharing with colleagues.
+
+<CodeGroup tabs="Share Options,Export Settings">
+````javascript
+// Share project with team
+ScanoRoom.share({
+  projectId: "scan_123",
+  recipients: ["colleague@company.com"],
+  permissions: "view"
+});
+````
+````javascript
+// Configure auto-save settings
+ScanoRoom.settings({
+  autoSave: true,
+  frequency: "every_30_seconds",
+  cloudBackup: true
+});
+````
+</CodeGroup>
+
+<Callout kind="info">
+  Projects are automatically backed up to secure cloud storage with end-to-end encryption.
+</Callout>
+
+## Next Steps
+
+With your first scan complete, explore advanced features like multi-room projects, measurement exports, and integration with design software. Refer to the scanning guide for detailed techniques and the exporting section for output options.
+
+<Update label="2024-10-01" description="Quick Start Enhancement" tags={["improvement"]}">
+
+## Recent Improvements
+
+- Added interactive tutorials for first-time users
+- Improved calibration process with visual feedback
+- Enhanced progress indicators during scanning
+
+</Update>

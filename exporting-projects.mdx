@@ -1,0 +1,210 @@
+---
+title: Exporting Projects
+description: Export your ScanoRoom projects in various formats
+---
+
+## Export Formats Overview
+
+ScanoRoom supports multiple export formats to ensure compatibility with your workflow and design software. Choose the appropriate format based on your intended use and required level of detail.
+
+<Columns cols={3}>
+  <Card title="2D Floor Plans" icon="square" href="#floor-plans">
+    Export accurate floor plans for architectural documentation.
+  </Card>
+  <Card title="3D Models" icon="cube" href="#3d-models">
+    Export detailed 3D models for visualization and modeling software.
+  </Card>
+  <Card title="Point Clouds" icon="scatter-chart" href="#point-clouds">
+    Export raw point cloud data for advanced analysis.
+  </Card>
+</Columns>
+
+## Floor Plan Exports
+
+Generate professional floor plans from your 3D scans with accurate measurements and annotations.
+
+<Tabs>
+  <Tab title="PDF Export" icon="file-text">
+    Perfect for sharing and printing floor plans with embedded measurements.
+    
+    <Steps>
+      <Step title="Select Views" icon="eye">
+        Choose which floor plan views to include in the export.
+      </Step>
+      <Step title="Add Annotations" icon="edit">
+        Include dimensions, labels, and notes on the floor plan.
+      </Step>
+      <Step title="Configure Layout" icon="layout">
+        Set paper size, scale, and orientation for printing.
+      </Step>
+      <Step title="Export" icon="download">
+        Generate the PDF file with high-resolution output.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="DWG Export" icon="file">
+    Compatible with AutoCAD and other CAD software for further editing.
+    
+    <Expandable title="Layer Organization" default-open="true">
+      Exports include separate layers for walls, doors, windows, and furniture.
+    </Expandable>
+    
+    <Expandable title="Scale Options" default-open="false">
+      Choose from standard architectural scales (1/4", 1/8", 1/16") or custom scales.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Floor plans are automatically scaled and include accurate measurements down to 1/16 inch precision.
+</Callout>
+
+## 3D Model Exports
+
+Export detailed 3D models in industry-standard formats for use in modeling and visualization software.
+
+<ExpandableGroup>
+  <Expandable title="OBJ Format" default-open="true">
+    Universal 3D format compatible with most 3D software including Blender, Maya, and SketchUp.
+  </Expandable>
+  <Expandable title="FBX Format" default-open="false">
+    Advanced format supporting animations, materials, and complex scenes for professional workflows.
+  </Expandable>
+  <Expandable title="STL Format" default-open="false">
+    Mesh-only format ideal for 3D printing and CNC machining applications.
+  </Expandable>
+</ExpandableGroup>
+
+<Tabs>
+  <Tab title="Material Options" icon="palette">
+    Choose whether to include texture mapping and material properties in exports.
+    
+    <CodeGroup tabs="OBJ Export,FBX Export">
+````javascript
+// Export with textures
+ScanoRoom.export({
+  format: "obj",
+  includeTextures: true,
+  quality: "high",
+  fileName: "living_room_scan.obj"
+});
+````
+````javascript
+// Export for animation software
+ScanoRoom.export({
+  format: "fbx",
+  includeMaterials: true,
+  embedMedia: true,
+  version: "2020"
+});
+````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Quality Settings" icon="settings">
+    Adjust mesh density and optimization settings for different use cases.
+    
+    <Expandable title="High Quality" default-open="true">
+      Maximum polygon count for detailed visualization and rendering.
+    </Expandable>
+    
+    <Expandable title="Optimized" default-open="false">
+      Reduced polygon count for better performance in real-time applications.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Point Cloud Exports
+
+Export raw point cloud data for advanced analysis and processing in specialized software.
+
+<Steps>
+  <Step title="Format Selection" icon="file-spreadsheet">
+    Choose from PLY, PCD, or XYZ formats based on your analysis software requirements.
+  </Step>
+  <Step title="Data Filtering" icon="filter">
+    Apply noise reduction and outlier removal to clean the point cloud data.
+  </Step>
+  <Step title="Coordinate System" icon="map-pin">
+    Specify the coordinate system and units (metric or imperial) for the export.
+  </Step>
+  <Step title="Compression" icon="archive">
+    Enable compression to reduce file size while maintaining data integrity.
+  </Step>
+</Steps>
+
+<ExpandableGroup>
+  <Expandable title="PLY Format" default-open="true">
+    Popular format supporting color information and multiple data channels.
+  </Expandable>
+  <Expandable title="PCD Format" default-open="false">
+    Native format for PCL (Point Cloud Library) with extensive metadata support.
+  </Expandable>
+  <Expandable title="XYZ Format" default-open="false">
+    Simple ASCII format containing only X, Y, Z coordinates.
+  </Expandable>
+</ExpandableGroup>
+
+## Batch Export and Automation
+
+Process multiple projects simultaneously with batch export capabilities and API integration.
+
+<Callout kind="tip">
+  Use the API to automate export workflows and integrate ScanoRoom with your existing pipeline.
+</Callout>
+
+<Tabs>
+  <Tab title="Batch Processing" icon="layers">
+    Export multiple scans simultaneously with consistent settings.
+    
+    <CodeGroup tabs="Batch Export,Automation Script">
+````javascript
+// Batch export multiple projects
+ScanoRoom.batchExport({
+  projects: ["project1", "project2", "project3"],
+  format: "pdf",
+  settings: {
+    scale: "1:100",
+    includeDimensions: true
+  }
+});
+````
+````javascript
+// Automated export on scan completion
+const exportJob = ScanoRoom.onScanComplete((project) => {
+  return ScanoRoom.export({
+    projectId: project.id,
+    format: "obj",
+    destination: "cloud_storage"
+  });
+});
+````
+    </CodeGroup>
+  </Tab>
+  <Tab title="API Integration" icon="api">
+    Integrate exports into your applications and workflows.
+    
+    <Expandable title="Webhook Notifications" default-open="true">
+      Receive notifications when exports complete for automated processing.
+    </Expandable>
+    
+    <Expandable title="Direct API Access" default-open="false">
+      Use REST API endpoints to trigger exports programmatically.
+    </Expandable>
+  </Tab>
+</Tabs>
+
+## Export Settings and Customization
+
+Fine-tune your exports with advanced settings for quality, file size, and compatibility.
+
+<ExpandableGroup>
+  <Expandable title="Quality vs File Size" default-open="true">
+    Balance detail level with file size by adjusting mesh resolution and texture quality.
+  </Expandable>
+  <Expandable title="Unit Conversion" default-open="false">
+    Automatically convert between metric and imperial units during export.
+  </Expandable>
+  <Expandable title="Metadata Inclusion" default-open="false">
+    Include scan metadata, timestamps, and geolocation data in export files.
+  </Expandable>
+</ExpandableGroup>
